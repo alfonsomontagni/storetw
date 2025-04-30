@@ -8,7 +8,7 @@ public class StoretwApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(StoretwApplication.class, args);
-		//
+
 	}
 
 }
