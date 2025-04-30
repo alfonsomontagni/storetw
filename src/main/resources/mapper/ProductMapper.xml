@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.montalf.storetw.mapper.ProductMapper">
+
+    <resultMap id="ProductResultMap" type="com.montalf.storetw.entity.mybatis.Product">
+        <id property="id" column="id"/>
+        <result property="name" column="name"/>
+        <result property="price" column="price"/>
+    </resultMap>
+
+    <select id="findById" parameterType="long" resultMap="ProductResultMap">
+        SELECT * FROM products WHERE id = #{id}
+    </select>
+
+    <insert id="insert" parameterType="com.montalf.storetw.entity.mybatis.Product">
+        INSERT INTO products(name, price)
+        VALUES (#{name}, #{price})
+    </insert>
+
+    <update id="update" parameterType="com.montalf.storetw.entity.mybatis.Product">
+        UPDATE products
+        SET name = #{name}, price = #{price}
+        WHERE id = #{id}
+    </update>
+
+    <delete id="delete" parameterType="long">
+        DELETE FROM products WHERE id = #{id}
+    </delete>
+
+</mapper>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>StoreTW</title>
+    <meta charset="UTF-8" />
+    <script>
+        async function fetchData(endpoint) {
+            const response = await fetch(endpoint);
+            const data = await response.json();
+            document.getElementById("result").innerText = JSON.stringify(data, null, 2);
+        }
+    </script>
+</head>
+<body>
+    <h1>Benvenuto su StoreTW</h1>
+
+    <button onclick="fetchData('/api/users')">Mostra Utenti</button>
+    <button onclick="fetchData('/api/products')">Mostra Prodotti</button>
+
+    <pre id="result" style="background-color:#f4f4f4; padding:1em; border:1px solid #ccc; margin-top:1em;"></pre>
+</body>
+</html>
